@@ -144,7 +144,7 @@ rFunction <- function(data, maxspeed=NULL, duration=NULL, radius=NULL)
     } else 
     {
       result <- moveStack(data.roost.nozero)
-      write.csv(prop.roost.df,file="roost_overview.csv",row.names=FALSE) #csv artefakt
+      write.csv(prop.roost.df,file = paste0(Sys.getenv(x = "APP_ARTIFACTS_DIR", "/tmp/"),"roost_overview.csv"),row.names=FALSE) #csv artefakt
     }
   }
 
