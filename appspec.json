@@ -1,0 +1,41 @@
+{
+  "settings": [
+    {
+      "id": "maxspeed",
+      "name": "Maximum roosting speed",
+      "description": "Insert maximum speed that your roosting animal can have (in m/s)",
+      "defaultValue": null,
+      "type": "FLOAT"
+    },
+    {
+      "id": "duration",
+      "name": "Minimum roost duration",
+      "description": "Inset minimum duration (in h) that your animal has to be in a refined area to be considred roosting. If roost raidus is given, default here to 1 hour.",
+      "defaultValue": null,
+      "type": "FLOAT"
+    },
+    {
+      "id": "radius",
+      "name": "Maximum roost radius",
+      "description": "Inset maximum radius (in m) of an area that you animal has to be refined to for being considered roost. If roost duration is given, default here to 1000 = 1km.",
+      "defaultValue": null,
+      "type": "FLOAT"
+    }
+  ],
+  "dependencies": {
+    "R": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "foreach"
+      },
+      {
+        "name": "maptools"
+      },
+      {
+        "name": "lubridate"
+      }
+	]
+  }
+}
