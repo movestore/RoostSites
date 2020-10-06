@@ -70,7 +70,7 @@ rFunction <- function(data, maxspeed=NULL, duration=NULL, radius=NULL)
 
   if (length(data.night.nozero)==0) 
   {
-    logger.info("Your data contain no night positions. Return NULL.")
+    logger.info("Your data contain no night positions. No csv overview saved. Return NULL.")
     result <- NULL
   } else 
   {
@@ -139,7 +139,7 @@ rFunction <- function(data, maxspeed=NULL, duration=NULL, radius=NULL)
     
     if (length(data.roost.nozero)==0) 
     {
-      logger.info("Your output file contains no positions. Return NULL.")
+      logger.info("Your output file contains no positions. No csv overview saved. Return NULL.")
       result <- NULL
     } else 
     {
