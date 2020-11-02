@@ -2,7 +2,7 @@ library(jsonlite)
 source("logger.R")
 source("RFunction.R")
 
-inputFileName = "input_fromMoveApps.rds" #important to set to NULL for movebank-download
+inputFileName = "input_Error2Nov.rds" #important to set to NULL for movebank-download
 outputFileName = "output.rds"
 
 args <- list()
@@ -17,8 +17,8 @@ args <- list()
 #    args[["password"]] = "any-password"
 
 # Add your arguments of your r function here
-args[["maxspeed"]] = 0.7 #m/s
-args[["duration"]] = 4 #h
+args[["maxspeed"]] = 1 #m/s
+args[["duration"]] = 2 #h
 args[["radius"]] = 	1000 #m 
 
 

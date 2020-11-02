@@ -23,7 +23,7 @@ rFunction <- function(data, maxspeed=NULL, duration=NULL, radius=NULL)
       datai[datai@data$ground_speed<maxspeed] # this used the GPS ground speed at positions
     }
     names(data.ground) <- names(data.split)
-    data.ground <- moveStack(data.ground)
+    data.ground <- moveStack(data.ground[unlist(lapply(data.ground, length) > 0)])
   }
   
   if (is.null(duration) & is.null(radius)) logger.info("You didnt provide any roost site radius or minimum roost duration. Please go back and configure them. Here return input data set.") 
