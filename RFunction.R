@@ -19,7 +19,8 @@ rFunction <- function(data, maxspeed=NULL, duration=NULL, radius=NULL)
   {
     data.split <- move::split(data)
     data.ground <- foreach(datai = data.split) %do% {
-      datai[speed(datai)<maxspeed]
+      #datai[speed(datai)<maxspeed] #this would use the speed between positions
+      datai[datai@data$ground_speed<maxspeed] # this used the GPS ground speed at positions
     }
     names(data.ground) <- names(data.split)
     data.ground <- moveStack(data.ground)
@@ -118,14 +119,18 @@ rFunction <- function(data, maxspeed=NULL, duration=NULL, radius=NULL)
                 } else data.selx <- data.sel
                 
                 data.selx.df <- as.data.frame(data.selx)
-                data.roosti.df <- rbind(data.roosti.df,data.selx.df)
                 
                 time0 <- min(timestamps(data.selx))
                 timeE <- max(timestamps(data.selx))
+                durx <- as.numeric(difftime(timeE,time0,unit="hour"))
                 radx <- max(distVincentyEllipsoid(mid,coordinates(data.selx)))
                 
-                prop.roost.df <- rbind(prop.roost.df,data.frame("local.identifier"=namesIndiv(data.selx),"year"=data.selx.df$year[1],"ynight"=data.selx.df$ynight[1],"timestamp.first"=as.character(time0),"timestamp.last"=as.character(timeE),"roost.mean.long"=mid[1,1],"roost.mean.lat"=mid[1,2],"roost.nposi"=length(data.selx),"roost.duration"=as.numeric(difftime(timeE,time0,unit="hour")),"roost.radius"=radx))
-                
+                if (durx>=duration & radx<=radius) #added this condition to only show roosts of given duraiton (if this condition is left out also roosts with shorter duration are given back)
+                {
+                  data.roosti.df <- rbind(data.roosti.df,data.selx.df)
+                  prop.roost.df <- rbind(prop.roost.df,data.frame("local.identifier"=namesIndiv(data.selx),"year"=data.selx.df$year[1],"ynight"=data.selx.df$ynight[1],"timestamp.first"=as.character(time0),"timestamp.last"=as.character(timeE),"roost.mean.long"=mid[1,1],"roost.mean.lat"=mid[1,2],"roost.nposi"=length(data.selx),"roost.duration"=durx,"roost.radius"=radx))
+                }
+ 
                 break
               } else last <- last-1 #shift one time step
             } else last <- last-1 # shift one time step also if not enough data in previous Xh time frame
@@ -144,7 +149,8 @@ rFunction <- function(data, maxspeed=NULL, duration=NULL, radius=NULL)
     } else 
     {
       result <- moveStack(data.roost.nozero)
-      write.csv(prop.roost.df,file = paste0(Sys.getenv(x = "APP_ARTIFACTS_DIR", "/tmp/"),"roost_overview.csv"),row.names=FALSE) #csv artefakt
+      #write.csv(prop.roost.df,file = paste0(Sys.getenv(x = "APP_ARTIFACTS_DIR", "/tmp/"),"roost_overview.csv"),row.names=FALSE) #csv artefakt
+      write.csv(prop.roost.df,file = "roost_overview.csv",row.names=FALSE)
     }
   }
 
