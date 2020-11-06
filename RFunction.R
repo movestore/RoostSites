@@ -139,7 +139,7 @@ rFunction <- function(data, maxspeed=NULL, duration=NULL, radius=NULL)
       }
       if (dim(data.roosti.df)[1]>0) data.roosti <- move(x=data.roosti.df$location_long,y=data.roosti.df$location_lat,time=data.roosti.df$timestamp,data=data.roosti.df,sensor=data.roosti.df$sensor,animal=data.roosti.df$local_identifier) else data.roosti <- NULL
     }
-    names(data.roost) <- names(data.ground.split)
+    names(data.roost) <- names(data.night.split)
     data.roost.nozero <- data.roost[unlist(lapply(data.roost, length) > 0)] #remove IDs with no data
     
     if (length(data.roost.nozero)==0) 
