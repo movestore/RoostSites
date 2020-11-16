@@ -38,5 +38,30 @@
       }
     ]
   },
-  "createsArtifacts": true
+  "createsArtifacts": true,
+  "license": {
+    "key": "MIT"
+  },
+  "language": "eng",
+  "keywords": [
+    "roost site",
+    "sleep",
+    "filter",
+    "movebank"
+  ],
+  "people": [
+    {
+      "firstName": "Andrea",
+      "middleInitials": null,
+      "lastName": "Kölzsch",
+      "email": "akoelzsch@ab.mpg.de",
+      "roles": ["author", "creator"],
+      "orcid": "0000-0003-0193-1563",
+      "affiliation": "Max-Planck-Institute of Animal Behavior",
+      "affiliationRor": "https://ror.org/026stee22"
+    }
+  ],
+  "documentation" : {
+    "url": "https://github.com/movestore/RoostSites/blob/master/README.md"
+  }
 }
