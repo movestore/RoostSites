@@ -19,8 +19,9 @@ rFunction <- function(data, maxspeed=NULL, duration=NULL, radius=NULL)
   {
     data.split <- move::split(data)
     data.ground <- foreach(datai = data.split) %do% {
-      #datai[speed(datai)<maxspeed] #this would use the speed between positions
-      datai[datai@data$ground_speed<maxspeed] # this used the GPS ground speed at positions
+      ix <- which(speed(datai)<maxspeed)
+      res <- datai[sort(unique(c(ix,ix+1))),] #this would use the speed between positions
+      #datai[datai@data$ground_speed<maxspeed] # this used the GPS ground speed at positions
     }
     names(data.ground) <- names(data.split)
     data.ground <- moveStack(data.ground[unlist(lapply(data.ground, length) > 0)])

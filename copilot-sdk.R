@@ -2,7 +2,7 @@ library(jsonlite)
 source("logger.R")
 source("RFunction.R")
 
-inputFileName = "inputErrorNov.rds" #important to set to NULL for movebank-download
+inputFileName = "input_EgretRoland.rds" #important to set to NULL for movebank-download
 outputFileName = "output.rds"
 
 args <- list()
