@@ -10,14 +10,14 @@
     {
       "id": "duration",
       "name": "Minimum roost duration",
-      "description": "Inset minimum duration (in h) that your animal has to be in a refined area to be considred roosting. If roost raidus is given, default here to 1 hour.",
+      "description": "Insert minimum duration (in h) that your animal has to be in a refined area to be considered roosting. If roost radius is given, default here to 1 hour.",
       "defaultValue": null,
       "type": "DOUBLE"
     },
     {
       "id": "radius",
       "name": "Maximum roost radius",
-      "description": "Inset maximum radius (in m) of an area that you animal has to be refined to for being considered roost. If roost duration is given, default here to 1000 = 1km.",
+      "description": "Insert maximum radius (in m) of an area that your animal has to be refined to for being considered roost. If roost duration is given, default here to 1000 = 1km.",
       "defaultValue": null,
       "type": "DOUBLE"
     }
