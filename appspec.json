@@ -69,7 +69,7 @@
   ],
   "references": [
 	{
-	"type": "IsReferenedBy",
+	"type": "IsReferencedBy",
 	"note": "Kölzsch A. 2021. A paper about my map. Fireworks effect goose roosting behaviour. in preparation",
 	"url": "https://www.ab.mpg.de/person/98278/10703"
 	},
