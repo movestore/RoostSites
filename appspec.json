@@ -61,6 +61,24 @@
       "affiliationRor": "https://ror.org/026stee22"
     }
   ],
+  "funding": [
+    {
+	"name": "Knobloch Family Foundation",
+	"comment": "grant for Migration Mapper (MPIAB)"
+	}
+  ],
+  "references": [
+	{
+	"type": "IsReferenedBy",
+	"note": "Kölzsch A. 2021. A paper about my map. Fireworks effect goose roosting behaviour. in preparation",
+	"url": "https://www.ab.mpg.de/person/98278/10703"
+	},
+	{
+    "type": "IsCitedBy",
+    "note": "Movebank Data Base",
+    "url": "http://www.movebank.org"
+    }
+  ],
   "documentation" : {
     "url": "https://github.com/movestore/RoostSites/blob/master/README.md"
   }
