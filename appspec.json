@@ -17,7 +17,7 @@
     {
       "id": "radius",
       "name": "Maximum roost radius",
-      "description": "Insert maximum radius (in m) of an area that your animal has to be refined to for being considered roost. If roost duration is given, default here to 1000 = 1km.",
+      "description": "Insert maximum radius (in m) of an area within which your animal must remain to be considered roosting behavior. If roost duration is given, default here to 1000 m (= 1 km)",
       "defaultValue": null,
       "type": "DOUBLE"
     }
