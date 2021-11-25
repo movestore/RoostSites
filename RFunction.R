@@ -2,10 +2,17 @@ library('move')
 library('foreach')
 library('maptools')
 library('lubridate')
+library('geosphere')
 
 rFunction <- function(data, maxspeed=NULL, duration=NULL, radius=NULL)
 {
   Sys.setenv(tz="UTC")
+  
+  speedx <- function(x) #input move object
+  {
+    N <- length(x)
+    distVincentyEllipsoid(coordinates(x))/as.numeric(difftime(timestamps(x)[-1],timestamps(x)[-N],units="secs"))
+  }
   
   n.all <- length(timestamps(data))
   data <- data[!duplicated(paste0(round_date(timestamps(data), "5 min"), trackId(data))),]
@@ -19,7 +26,7 @@ rFunction <- function(data, maxspeed=NULL, duration=NULL, radius=NULL)
   {
     data.split <- move::split(data)
     data.ground <- foreach(datai = data.split) %do% {
-      ix <- which(speed(datai)<maxspeed)
+      ix <- which(speedx(datai)<maxspeed)
       res <- datai[sort(unique(c(ix,ix+1))),] #this would use the speed between positions
       #datai[datai@data$ground_speed<maxspeed] # this used the GPS ground speed at positions
     }
