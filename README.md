@@ -24,18 +24,18 @@ moveStack in Movebank format
 ### Artefacts
 `roost_overview.csv`: csv-file with Table of roost site properites (see details in Documentatin above)
 
-### Parameters 
-`maxspeed`: Maximum instantaneous ground speed an animal is allowed during roost behaviour. Locations with GPS ground speeds above this value will be removed.
+### Settings 
+**Maximum roosting speed (`maxspeed`):** Maximum instantaneous ground speed an animal is allowed during roost behaviour. Locations with GPS ground speeds above this value will be removed.
 
-`duration`: Defined duration the animal minimally stays in a given radius for it to be considered roost. Unit: `hours`.
+**Minimum roost duration (`duration`):** Defined duration the animal minimally stays in a given radius for it to be considered roost. Unit: `hours`.
 
-`radius`: Defined radius the animal has to stay in for a given duration of time for it to be considered roost. Unit: `metres`.
+**Maximum roost radius (`radius`):** Defined radius the animal has to stay in for a given duration of time for it to be considered roost. Unit: `metres`.
 
 ### Null or error handling:
-**Parameter `maxspeed`:** If no maximum ground speed is provided (NULL), all locations are used for the night and roost analysis. This techniqually allows fast movement to be classified as roosting behaviour.
+**Setting `maxspeed`:** If no maximum ground speed is provided (NULL), all locations are used for the night and roost analysis. This techniqually allows fast movement to be classified as roosting behaviour.
 
-**Parameter `duration`:** If no duration AND no radius are given, the input data set is returned with a warning. If no duraiton is given (NULL), but a radius is defined then a default duration of 1 hour is set. 
+**Setting `duration`:** If no duration AND no radius are given, the input data set is returned with a warning. If no duraiton is given (NULL), but a radius is defined then a default duration of 1 hour is set. 
 
-**Parameter `radius`:** If no radius AND no duration are given, the input data set is returned with a warning. If no radius is given (NULL), but a duration is defined then a default radius of 1000m = 1km is set. 
+**Setting `radius`:** If no radius AND no duration are given, the input data set is returned with a warning. If no radius is given (NULL), but a duration is defined then a default radius of 1000m = 1km is set. 
 
 **Data:** If there are no roosting locations retained after all analyses, NULL is returned, likely leading to an error.
